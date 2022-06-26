@@ -1,0 +1,54 @@
+﻿@using RamunisrealtNET.Models
+@model IEnumerable<Achives>
+@{
+    ViewData["Title"] = "Архив";
+}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">ДЗ</th>
+            <th scope="col">Клиент</th>
+            <th scope="col">Собственник</th>
+            <th scope="col">Город</th>
+            <th scope="col">Адрес</th>
+            <th scope="col">Описание</th>
+            <th scope="col">Площадь</th>
+            <th scope="col">Этаж</th>
+            <th scope="col">Дата постройки</th>
+            <th scope="col">Срок</th>
+            <th scope="col">Цена</th>
+            <th scope="col">Оплата</th>
+            <th scope="col">Изображение</th>
+            <th scope="col">Платёжный чек</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Achives item in Model)
+        {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.DZ</td>
+            <td><a href="/Account/Client?uid=@item.Client">@item.Client</a></td>
+            <td><a href="/Account/Client?uid=@item.Realtor">@item.Realtor</a></td>
+            <td>@item.City</td>
+            <td>@item.Adres</td>
+            <td>@item.About</td>
+            <td>@item.Sq</td>
+            <td>@item.Level</td>
+            <td>@item.DS</td>
+            <td>@item.Term</td>
+            <td>@item.Price</td>
+            <td>@item.Pay</td>
+            <td>
+                <img src="@item.Pic" width="189" height="255" alt="">
+            </td>
+            <td>
+                <img src="@item.Payfile" width="189" height="255" alt="">
+            </td>
+
+        </tr>
+        }
+    </tbody>
+</table>

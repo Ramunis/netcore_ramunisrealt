@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Ramunisrealt</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Ramunisrealt</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Rent">Rent</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Buy">Buy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Newbuild">New Builds</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Newrent">Pass</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Newbuy">Sell</a>
+                        </li>
+
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+                                Property
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                <li><a class="dropdown-item" href="/Home/Buyapart">Apartaments</a></li>
+                                <li><a class="dropdown-item" href="/Home/Buyroom">Rooms</a></li>
+                                <li><a class="dropdown-item" href="/Home/Buyhouse">Houses</a></li>
+                                <li><a class="dropdown-item" href="/Home/Buyland">Lands</a></li>
+                                <li><a class="dropdown-item" href="/Home/Buygarage">Garages</a></li>
+                                <li><a class="dropdown-item" href="/Home/Buycommerce">Commerce</a></li>
+
+                            </ul>
+                        </div>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Top">Top sellers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Calc">Mortgage</a>
+                        </li>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+                            <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+                        </form>
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+                                    <a>@User.Identity.Name</a>
+                                    <img src="" alt="mdo" width="32" height="32" class="rounded-circle">
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                                    <li><a class="dropdown-item" href="/Account/">Profile</a></li>
+                                    <li><a class="dropdown-item" href="/Home/Deals">Deals</a></li>
+                                    <li><a class="dropdown-item" href="/Home/Purchase">Purchase</a></li>
+                                    <li><a class="dropdown-item" href="/Home/Archive">Archive</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="/Account/Edit">Settings</a></li>
+                                    <form method="post" asp-controller="Account" asp-action="Logout">
+                                        <input type="submit" value="Выход" />
+                                    </form>
+                                </ul>
+                            </div>
+                        }
+                        else
+                        {
+                    <ul class="nav">
+                        <li class="nav-item"><a href="/Account/Login" class="btn btn-light text-dark me-2">Login</a></li>                    
+                        <li class="nav-item"><a href="/Account/Register" class="btn btn-primary">Sign up</a></li>
+                    </ul>
+                        }
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <div class="container">
+        <footer class="row row-cols-5 py-5 my-5 border-top">
+            <div class="col">
+                <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+                    <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap" /></svg>
+                </a>
+                <p class="text-muted">&copy; Ramunisrealt © 2022</p>
+            </div>
+
+            <div class="col">
+
+            </div>
+
+            <div class="col">
+                <h5>Services</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="/Home/Rent" class="nav-link p-0 text-muted">Rent</a></li>
+                    <li class="nav-item mb-2"><a href="/Home/Buy" class="nav-link p-0 text-muted">Buy</a></li>
+                    <li class="nav-item mb-2"><a href="/Home/Newrent" class="nav-link p-0 text-muted">Pass</a></li>
+                    <li class="nav-item mb-2"><a href="/Home/Buybuy" class="nav-link p-0 text-muted">Sell</a></li>
+                    <li class="nav-item mb-2"><a href="/Home/Calc" class="nav-link p-0 text-muted">Mortgage</a></li>
+                </ul>
+            </div>
+
+            <div class="col">
+                <h5>Property</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="/Home/Buyapart" class="nav-link p-0 text-muted">Apartaments</a></li>
+                    <li class="nav-item mb-2"><a href="/Home/Buyroom" class="nav-link p-0 text-muted">Rooms</a></li>
+                    <li class="nav-item mb-2"><a href="/Home/Buyhouse" class="nav-link p-0 text-muted">Houses</a></li>
+                    <li class="nav-item mb-2"><a href="/Home/Buyland" class="nav-link p-0 text-muted">Lands</a></li>
+                    <li class="nav-item mb-2"><a href="/Home/Buygarage" class="nav-link p-0 text-muted">Garages</a></li>
+                    <li class="nav-item mb-2"><a href="/Home/Buycommerce" class="nav-link p-0 text-muted">Commerce</a></li>
+                </ul>
+            </div>
+
+            <div class="col">
+                <h5>System</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="/Account/Register" class="nav-link p-0 text-muted">Registration</a></li>
+                    <li class="nav-item mb-2"><a href="/Account/Login" class="nav-link p-0 text-muted">Login</a></li>
+                    <li class="nav-item mb-2"><a href="/Account/" class="nav-link p-0 text-muted">Account</a></li>
+                    <li class="nav-item mb-2"><a href="/Home/Deals" class="nav-link p-0 text-muted">Deals</a></li>
+                    <li class="nav-item mb-2"><a href="/Home/Purchase" class="nav-link p-0 text-muted">Purchase</a></li>
+                    <li class="nav-item mb-2"><a href="/Home/Archive" class="nav-link p-0 text-muted">Achive</a></li>
+                    <li class="nav-item mb-2"><a href="/Account/Top" class="nav-link p-0 text-muted">Top sellers</a></li>
+                </ul>
+            </div>
+        </footer>
+    </div><script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

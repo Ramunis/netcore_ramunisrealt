@@ -1,0 +1,69 @@
+﻿@{ ViewData["Title"] = "Новое объявление";
+
+}
+@model RamunisrealtNET.Models.Contracts
+<style>
+    .size {
+        width: 25%;
+        min-width: 250px;
+    }
+</style>
+<br>
+<h4>Размещение объявления продажи</h4>
+
+<form asp-action="Newbuy" asp-controller="Home" asp-anti-forgery="true">
+    <div>
+
+        <label asp-for="Categor">Выберите тип объекта</label><br />
+        <select name="cater" asp-for="Categor" asp-items="ViewBag.categors"></select>
+        <span asp-validation-for="Categor"></span><br>
+
+        <label asp-for="District">Выберите район</label><br />
+        <select name="dist" asp-for="District" asp-items="ViewBag.regions"></select>
+        <span asp-validation-for="District"></span><br>
+
+        <label asp-for="City">Введите Город </label><br>
+        <input class="form-control size" type="text" asp-for="City" />
+        <span asp-validation-for="City"></span><br>
+
+        <label asp-for="Adres">Введите Адрес </label><br>
+        <input class="form-control size" type="text" asp-for="Adres" />
+        <span asp-validation-for="Adres"></span><br>
+
+        <label asp-for="Sq">Введите Площадь </label><br>
+        <input class="form-control size" type="text" asp-for="Sq" />
+        <span asp-validation-for="Sq"></span><br>
+
+        <label asp-for="Level">Введите Этаж </label><br>
+        <input class="form-control size" type="number" asp-for="Level" />
+        <span asp-validation-for="Level"></span><br>
+
+        <label asp-for="DS">Введите Дату Строительтва </label><br>
+        <input class="form-control size" type="date" asp-for="DS" />
+        <span asp-validation-for="DS"></span><br>
+
+        <label asp-for="Price">Введите Цену </label><br>
+        <input class="form-control size" type="number" asp-for="Price" />
+        <span asp-validation-for="Price"></span><br>
+
+        <label asp-for="Pay">Введите Оплату </label><br>
+        <input class="form-control size" type="text" asp-for="Pay" />
+        <span asp-validation-for="Pay"></span><br>
+
+        <label asp-for="Repair">Выберите ремонт</label><br />
+        <select name="repa" asp-for="Repair" asp-items="ViewBag.repairs"></select>
+        <span asp-validation-for="Repair"></span><br>
+
+        <label asp-for="About">Введите Описание </label><br>
+        <input class="form-control size" type="text" asp-for="About" />
+        <span asp-validation-for="About"></span><br>
+
+        <label asp-for="Pic">Ссылка на изображение </label><br>
+        <input class="form-control size" type="text" asp-for="Pic" />
+        <span asp-validation-for="Pic"></span><br>
+
+        <input type="submit" value="Добавить" class="btn btn-sm btn btn-outline-dark" />
+    </div>
+</form>
+<br>
+<br>

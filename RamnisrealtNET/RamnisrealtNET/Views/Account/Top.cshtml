@@ -1,0 +1,48 @@
+﻿@model IEnumerable<User>
+@{
+    ViewData["Title"] = "Пользователи";
+}
+<div class="text-center">
+    @*@Html.ActionLink("По району", "Rent5")
+        @Html.ActionLink("Самые дешёвые", "Rent1")
+        @Html.ActionLink("Самые дорогие", "Rent2")
+        @Html.ActionLink("Min площадь", "Rent3")
+        @Html.ActionLink("Max площадь", "Rent4")*@
+    <h1>Доска объявлений</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Фото</th>
+                <th scope="col">Фамилия</th>
+                <th scope="col">Имя</th>
+                <th scope="col">Отчество</th>
+                <th scope="col">Город</th>
+                <th scope="col">Адрес</th>
+                <th scope="col">Email</th>
+                <th scope="col">Телефон</th>
+                <th scope="col">ДР</th>
+                <th scope="col">Смотреть</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (User item in Model)
+            {
+            <tr>
+                <td>
+                    <img src="@item.Pic" width="189" height="255" alt="">
+                </td>
+                <td>@item.F</td>
+                <td>@item.I</td>
+                <td>@item.O</td>
+                <td>@item.City</td>
+                <td>@item.Adres</td>
+                <td>@item.Email</td>
+                <td>@item.Phon</td>
+                <td>@item.Year</td>
+
+                <td><a href="/Account/Client?uid=@item.Email" class="btn btn-primary">Смотреть профиль</a></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

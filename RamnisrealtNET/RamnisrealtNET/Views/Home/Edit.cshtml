@@ -1,0 +1,59 @@
+﻿
+@using RamunisrealtNET.Models
+@model IEnumerable<Contracts>
+@{
+    ViewData["Title"] = "Редактирование";
+
+}
+<style>
+    .size {
+        width: 25%;
+        min-width: 250px;
+    }
+</style>
+<br>
+<h4>Размещение объявления аренды</h4>
+
+<form asp-action="Edit" asp-controller="Home" asp-anti-forgery="true">
+    <div>
+        @foreach (Contracts item in Model)
+        {
+            <label>Введите Город </label><br>
+            <input class="form-control size" value="@item.City" name="city" type="text" />
+
+            <label>Введите Адрес </label><br>
+            <input class="form-control size" value="@item.Adres" name="adres" type="text" />
+
+            <label>Введите Площадь </label><br>
+            <input class="form-control size" value="@item.Sq" name="sq" type="text" />
+
+            <label>Введите Этаж </label><br>
+            <input class="form-control size" value="@item.Level" name="level" type="number" />
+
+            <label>Введите Дату Строительтва </label><br>
+            <input class="form-control size" value="@item.DS" name="ds" type="date" />
+
+            <label>Введите Срок </label><br>
+            <input class="form-control size" value="@item.Term" name="term" type="number" />
+
+            <label>Введите Цену </label><br>
+            <input class="form-control size" value="@item.Price" name="price" type="number" />
+
+            <label>Введите Оплату </label><br>
+            <input class="form-control size" value="@item.Pay" name="pay" type="text" />
+
+            <label>Введите Описание </label><br>
+            <input class="form-control size" value="@item.About" name="about" type="text" />
+
+            <label>Ссылка на изображение </label><br>
+            <input class="form-control size" value="@item.Pic" name="pic" />
+
+        }
+
+            <form method="post">
+            <input type="submit" value="Обновить" class="btn btn-sm btn btn-outline-dark" />
+            </form>
+    </div>
+</form>
+<br>
+<br>

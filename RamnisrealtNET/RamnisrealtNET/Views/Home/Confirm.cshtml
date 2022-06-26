@@ -1,0 +1,15 @@
+﻿@model IEnumerable<RamunisrealtNET.Models.FileModel>
+@{
+    ViewData["Title"] = "Подтвердение сделки";
+}
+
+<h3>Чеки подтверждающие оплату</h3>
+
+<form method="post">
+    <input type="submit" value="Подтвердить оплату" class="btn btn-success" />
+</form>
+
+@foreach (var f in Model)
+{
+    <p><img src="@Url.Content(f.Path)"></p>
+}

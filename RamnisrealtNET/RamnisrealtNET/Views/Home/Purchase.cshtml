@@ -1,0 +1,47 @@
+﻿@using RamunisrealtNET.Models
+@model IEnumerable<Contracts>
+@{
+    ViewData["Title"] = "Мои покупки";
+}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">ДЗ</th>
+            <th scope="col">Услуга</th>
+            <th scope="col">Тип</th>
+            <th scope="col">Город</th>
+            <th scope="col">Район</th>
+            <th scope="col">Адрес</th>
+            <th scope="col">Дата постройки</th>
+            <th scope="col">Срок</th>
+            <th scope="col">Цена</th>
+            <th scope="col">Фото</th>
+            <th scope="col">Открыть</th>
+            <th scope="col">Подтвердить</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Contracts item in Model)
+        {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.DZ</td>
+            <td>@item.Service?.Servic</td>
+            <td>@item.Categor?.Cat</td>
+            <td>@item.City</td>
+            <td>@item.District?.District</td>
+            <td>@item.Adres</td>
+            <td>@item.DS</td>
+            <td>@item.Term</td>
+            <td>@item.Price</td>
+            <td>
+                <img src="@item.Pic" width="189" height="255" alt="">
+            </td>
+            <td><a class="btn btn-warning" asp-controller="Home" asp-action="Add" asp-route-id=@item.ID>Смотреть</a></td>
+            <td><a class="btn btn-success" asp-controller="Home" asp-action="AddFile" asp-route-id=@item.ID>Заплатить</a></td>
+        </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,59 @@
+﻿@model RamnisrealtNET.ViewModels.RegisterViewModel
+
+    <img src="~/img/4.png" class="img-fluid" alt="Responsive image">
+
+<h2>Регистрация нового пользователя</h2>
+<form method="post" asp-controller="Account" asp-action="Register">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div>
+        <label asp-for="Email"></label><br />
+        <input asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div>
+        <label asp-for="Year"></label><br />
+        <input asp-for="Year" type="date" />
+        <span asp-validation-for="Year"></span>
+    </div>
+    <div>
+        <label asp-for="Password"></label><br />
+        <input asp-for="Password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div>
+        <label asp-for="PasswordConfirm"></label><br />
+        <input asp-for="PasswordConfirm" />
+        <span asp-validation-for="PasswordConfirm"></span>
+    </div>
+    <div>
+        <label asp-for="F"></label><br />
+        <input asp-for="F" />
+    </div>
+    <div>
+        <label asp-for="I"></label><br />
+        <input asp-for="I" />
+    </div>
+    <div>
+        <label asp-for="O"></label><br />
+        <input asp-for="O" />
+    </div>
+    <div>
+        <label asp-for="Phon"></label><br />
+        <input asp-for="Phon" />
+    </div>
+    <div>
+        <label asp-for="City"></label><br />
+        <input asp-for="City" />
+    </div>
+    <div>
+        <label asp-for="Adres"></label><br />
+        <input asp-for="Adres" />
+    </div>
+    <div>
+        <label asp-for="Pic"></label><br />
+        <input asp-for="Pic" />
+    </div>
+    <div>
+        <input type="submit" value="Регистрация" />
+    </div>
+</form>

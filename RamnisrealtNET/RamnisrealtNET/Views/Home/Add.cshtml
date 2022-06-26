@@ -1,0 +1,80 @@
+﻿@using RamunisrealtNET.Models
+@model IEnumerable<Contracts>
+@{
+    ViewData["Title"] = "Объявление";
+}
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+
+    <div class="container">
+
+        <div id="main">
+            @foreach (Contracts item in Model)
+            {
+
+                <h1 class="h2">@item.City, @item.Adres</h1>
+                <h1 class="h2">@item.Price $</h1>
+                <div class="row" id="real-estates-detail">
+                    <div class="col-lg-4 col-md-4 col-xs-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+
+
+
+                                <div class="panel-body">
+                                    <div class="text-center" id="author">
+                                        <input type="image" name="pic" src="@item.Pic" width="180">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <table class="table table-th-block">
+                                <tbody>
+                                    <tr><td class="active">ID:</td><td>@item.ID</td></tr>
+                                    <tr><td class="active">Дата объявления:</td><td>@item.DZ</td></tr>
+                                    <tr><td class="active">Собственник:</td><td>@item.Client</td></tr>
+                                    <tr><td class="active">Риелтор:</td><td>@item.Realtor<td></td></tr>
+                                    <tr><td class="active">Тип объекта:</td><td>@ViewBag.q1</td></tr>
+                                    <tr><td class="active">Район:</td><td>@ViewBag.q3</td></tr>
+                                    <tr><td class="active">Город:</td><td>@item.City</td></tr>
+                                    <tr><td class="active">Адрес:</td><td>@item.Adres</td></tr>
+                                    <tr><td class="active">Услуга:</td><td>@ViewBag.q4</td></tr>
+                                    <tr><td class="active">Площадь:</td><td>@item.Sq м^2</td></tr>
+                                    <tr><td class="active">Этаж:</td><td>@item.Level</td></tr>
+                                    <tr><td class="active">Дата постройки:</td><td>@item.DS</td></tr>
+                                    <tr><td class="active">Срок:</td><td>@item.Term дней</td></tr>
+                                    <tr><td class="active">Цена:</td><td>@item.Price $</td></tr>
+                                    <tr><td class="active">Платёжный счёт:</td><td>@item.Pay</td></tr>
+                                    <tr><td class="active">Ремонт:</td><td>@ViewBag.q2</td></tr>
+                                    <tr><td class="active">Описание:</td><td>@item.About</td></tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+                <iframe src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1%{{ @item.Adres }}+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                        allowfullscreen class="card-img-top w-100"></iframe>
+
+                <br /><br />
+                <td><a href="/Account/Client?uid=@item.Client" class="btn btn-primary">Смотреть профиль</a></td>
+                <br /><br />
+                <form method="post">
+                    <td><input type="submit" class="btn btn-success" value="Заключить сделку" class="btn btn-sm btn btn-outline-dark" /></td>
+                </form>
+
+            }
+        </div>
+    </div>
+
+   
+    </div>
+    </div>
+    </div>
+
+
+</main>
